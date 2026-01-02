@@ -1,0 +1,1097 @@
+/* Fonts loaded via index.html for better performance */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* TEKSYS Design System - Dark Purple/Indigo Futuristic Theme */
+
+@layer base {
+  :root {
+    /* Deep Indigo #0B0F2A - Main background */
+    --background: 232 60% 10%;
+    --foreground: 0 0% 100%;
+
+    /* Mid Purple #5B2D8B - Cards, highlights */
+    --card: 270 51% 36%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 270 51% 36%;
+    --popover-foreground: 0 0% 100%;
+
+    /* Soft Violet #8F6AD9 - Buttons, active states */
+    --primary: 262 59% 63%;
+    --primary-foreground: 232 60% 10%;
+
+    /* Royal Purple #3B1D5A - Section gradients */
+    --secondary: 270 51% 23%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted Text #B6B6CC */
+    --muted: 270 51% 23%;
+    --muted-foreground: 240 18% 76%;
+
+    /* Lavender Glow #B8A7E8 - Subtle glows, hover accents */
+    --accent: 256 59% 78%;
+    --accent-foreground: 232 60% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Glass Border: rgba(255,255,255,0.15) */
+    --border: 0 0% 100% / 0.15;
+    --input: 270 51% 23%;
+    --ring: 262 59% 63%;
+
+    --radius: 1rem;
+
+    /* Custom TEKSYS tokens - Updated color palette */
+    /* Deep Indigo #0B0F2A to Royal Purple #3B1D5A */
+    --gradient-hero: linear-gradient(135deg, hsl(232 60% 10%) 0%, hsl(270 51% 23%) 50%, hsl(232 60% 10%) 100%);
+    --gradient-section: linear-gradient(180deg, hsl(232 60% 10%) 0%, hsl(270 51% 23%) 100%);
+    /* Mid Purple #5B2D8B gradient */
+    --gradient-card: linear-gradient(145deg, hsl(270 51% 30%) 0%, hsl(270 51% 36%) 100%);
+    /* Soft Violet #8F6AD9 to Lavender #B8A7E8 */
+    --gradient-partners: linear-gradient(90deg, hsl(262 59% 63%) 0%, hsl(256 59% 78%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(262 59% 58%) 0%, hsl(256 59% 68%) 100%);
+    
+    /* Glass Effects - rgba(255,255,255,0.15) border, rgba(0,0,0,0.25) shadow */
+    --glass-bg: hsl(270 51% 23% / 0.6);
+    --glass-border: hsl(0 0% 100% / 0.15);
+    --glass-shadow: 0 8px 32px hsl(0 0% 0% / 0.25);
+    
+    /* Lavender Glow #B8A7E8 */
+    --glow-primary: 0 0 20px hsl(256 59% 78% / 0.4);
+    --glow-accent: 0 0 20px hsl(262 59% 63% / 0.4);
+
+    --sidebar-background: 232 60% 10%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 262 59% 63%;
+    --sidebar-primary-foreground: 232 60% 10%;
+    --sidebar-accent: 270 51% 23%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 100% / 0.15;
+    --sidebar-ring: 262 59% 63%;
+
+    --chart-1: 262 59% 63%;
+    --chart-2: 256 59% 78%;
+    --chart-3: 270 51% 36%;
+    --chart-4: 270 51% 23%;
+    --chart-5: 232 60% 10%;
+
+    --font-sans: 'Montserrat', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-display: 'Orbitron', sans-serif;
+  }
+
+  /* Light Mode */
+  .light {
+    /* Clean white/light gray background */
+    --background: 240 20% 98%;
+    --foreground: 232 60% 15%;
+
+    /* Light purple cards */
+    --card: 256 40% 96%;
+    --card-foreground: 232 60% 15%;
+
+    --popover: 256 40% 96%;
+    --popover-foreground: 232 60% 15%;
+
+    /* Soft Violet - primary stays similar */
+    --primary: 262 59% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Light purple secondary */
+    --secondary: 256 30% 90%;
+    --secondary-foreground: 262 59% 45%;
+
+    /* Muted for light mode */
+    --muted: 256 20% 92%;
+    --muted-foreground: 240 10% 45%;
+
+    /* Accent stays lavender-ish */
+    --accent: 262 59% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Subtle borders for light mode */
+    --border: 256 20% 85%;
+    --input: 256 20% 92%;
+    --ring: 262 59% 55%;
+
+    /* Light mode gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(240 20% 98%) 0%, hsl(256 30% 95%) 50%, hsl(240 20% 98%) 100%);
+    --gradient-section: linear-gradient(180deg, hsl(240 20% 98%) 0%, hsl(256 25% 94%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(256 35% 97%) 0%, hsl(256 40% 94%) 100%);
+    --gradient-partners: linear-gradient(90deg, hsl(262 59% 55%) 0%, hsl(256 59% 65%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(262 59% 50%) 0%, hsl(256 59% 60%) 100%);
+    
+    /* Glass effects for light mode */
+    --glass-bg: hsl(256 30% 95% / 0.7);
+    --glass-border: hsl(256 30% 80% / 0.3);
+    --glass-shadow: 0 8px 32px hsl(256 30% 50% / 0.1);
+    
+    /* Subtle glows for light mode */
+    --glow-primary: 0 0 20px hsl(262 59% 55% / 0.2);
+    --glow-accent: 0 0 20px hsl(256 59% 65% / 0.2);
+
+    --sidebar-background: 240 20% 98%;
+    --sidebar-foreground: 232 60% 15%;
+    --sidebar-primary: 262 59% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 256 30% 90%;
+    --sidebar-accent-foreground: 262 59% 45%;
+    --sidebar-border: 256 20% 85%;
+    --sidebar-ring: 262 59% 55%;
+  }
+
+  /* Dark Mode */
+  .dark {
+    /* Deep Indigo #0B0F2A - Main background */
+    --background: 232 60% 10%;
+    --foreground: 0 0% 100%;
+
+    /* Mid Purple #5B2D8B - Cards, highlights */
+    --card: 270 51% 36%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 270 51% 36%;
+    --popover-foreground: 0 0% 100%;
+
+    /* Soft Violet #8F6AD9 - Buttons, active states */
+    --primary: 262 59% 63%;
+    --primary-foreground: 232 60% 10%;
+
+    /* Royal Purple #3B1D5A - Section gradients */
+    --secondary: 270 51% 23%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted Text #B6B6CC */
+    --muted: 270 51% 23%;
+    --muted-foreground: 240 18% 76%;
+
+    /* Lavender Glow #B8A7E8 - Subtle glows, hover accents */
+    --accent: 256 59% 78%;
+    --accent-foreground: 232 60% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Glass Border: rgba(255,255,255,0.15) */
+    --border: 0 0% 100% / 0.15;
+    --input: 270 51% 23%;
+    --ring: 262 59% 63%;
+
+    /* Dark mode gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(232 60% 10%) 0%, hsl(270 51% 23%) 50%, hsl(232 60% 10%) 100%);
+    --gradient-section: linear-gradient(180deg, hsl(232 60% 10%) 0%, hsl(270 51% 23%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(270 51% 30%) 0%, hsl(270 51% 36%) 100%);
+    --gradient-partners: linear-gradient(90deg, hsl(262 59% 63%) 0%, hsl(256 59% 78%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(262 59% 58%) 0%, hsl(256 59% 68%) 100%);
+    
+    /* Glass Effects */
+    --glass-bg: hsl(270 51% 23% / 0.6);
+    --glass-border: hsl(0 0% 100% / 0.15);
+    --glass-shadow: 0 8px 32px hsl(0 0% 0% / 0.25);
+    
+    /* Lavender Glow */
+    --glow-primary: 0 0 20px hsl(256 59% 78% / 0.4);
+    --glow-accent: 0 0 20px hsl(262 59% 63% / 0.4);
+
+    --sidebar-background: 232 60% 10%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 262 59% 63%;
+    --sidebar-primary-foreground: 232 60% 10%;
+    --sidebar-accent: 270 51% 23%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 100% / 0.15;
+    --sidebar-ring: 262 59% 63%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background: var(--gradient-hero);
+    min-height: 100vh;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+  }
+
+  .gradient-text {
+    background: var(--gradient-partners);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .section-gradient {
+    background: var(--gradient-section);
+  }
+
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+
+  .cta-gradient {
+    background: var(--gradient-cta);
+  }
+
+  .partners-gradient {
+    background: var(--gradient-partners);
+  }
+
+  .hero-circle {
+    @apply rounded-full overflow-hidden border-4 border-primary/30;
+    box-shadow: var(--glow-primary);
+  }
+
+  .nav-blur {
+    backdrop-filter: blur(12px);
+    background: hsl(var(--background) / 0.85);
+  }
+}
+
+@layer utilities {
+  /* Modal animation */
+  .animate-modal-enter {
+    animation: modalEnter 0.3s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.2s ease-out forwards;
+  }
+
+  @keyframes modalEnter {
+    0% {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  /* Section entrance animation */
+  .animate-section-enter {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+
+  .animate-section-enter.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Floating circle animations - different timings */
+  .animate-float-1 {
+    animation: float1 5s ease-in-out infinite;
+  }
+
+  .animate-float-2 {
+    animation: float2 6s ease-in-out infinite;
+  }
+
+  .animate-float-3 {
+    animation: float3 5.5s ease-in-out infinite;
+  }
+
+  /* Hero circle hover effect - Lavender Glow */
+  .hero-circle-animated {
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  }
+
+  .hero-circle-animated:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 30px hsl(256 59% 78% / 0.5);
+  }
+
+  /* Card hover animation - Enhanced */
+  .card-hover {
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), 
+                box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+                border-color 0.3s ease-out;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 
+      0 20px 40px hsl(262 59% 50% / 0.15),
+      0 8px 16px hsl(0 0% 0% / 0.1),
+      0 0 0 1px hsl(262 59% 63% / 0.2);
+  }
+
+  .dark .card-hover:hover {
+    box-shadow: 
+      0 20px 40px hsl(262 59% 50% / 0.25),
+      0 8px 16px hsl(0 0% 0% / 0.2),
+      0 0 0 1px hsl(256 59% 78% / 0.3);
+  }
+
+  /* Marquee animation */
+  .animate-marquee {
+    animation: marquee 12s linear infinite;
+  }
+
+  /* Wave animation for footer */
+  .animate-wave {
+    animation: wave 15s ease-in-out infinite;
+  }
+
+  @keyframes float1 {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+
+  @keyframes float2 {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes float3 {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-14px);
+    }
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes wave {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(-20px);
+    }
+  }
+
+  /* Smart Agriculture Workflow Animations */
+  .animate-route-draw {
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    animation: routeDraw 4s ease-in-out infinite;
+  }
+
+  @keyframes routeDraw {
+    0%, 5% {
+      stroke-dashoffset: 400;
+    }
+    40%, 100% {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  .animate-farm-pulse {
+    animation: farmPulse 4s ease-in-out infinite;
+  }
+
+  @keyframes farmPulse {
+    0%, 5% {
+      opacity: 0.5;
+      transform: scale(0.9);
+    }
+    15%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-market-pulse {
+    animation: marketPulse 4s ease-in-out infinite;
+  }
+
+  @keyframes marketPulse {
+    0%, 70% {
+      opacity: 0.5;
+      transform: scale(0.9);
+    }
+    85%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-step-1 {
+    animation: step1Appear 4s ease-in-out infinite;
+  }
+
+  @keyframes step1Appear {
+    0%, 5% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    15%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-step-2 {
+    animation: step2Appear 4s ease-in-out infinite;
+  }
+
+  @keyframes step2Appear {
+    0%, 20% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    35%, 100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-vehicle-move {
+    animation: vehicleMove 4s ease-in-out infinite;
+  }
+
+  @keyframes vehicleMove {
+    0%, 30% {
+      opacity: 0;
+      transform: translate(-80px, 80px);
+    }
+    45% {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+    70% {
+      opacity: 1;
+      transform: translate(80px, -80px);
+    }
+    85%, 100% {
+      opacity: 0;
+      transform: translate(120px, -120px);
+    }
+  }
+
+  .animate-vehicle-glow {
+    animation: vehicleGlow 4s ease-in-out infinite;
+  }
+
+  @keyframes vehicleGlow {
+    0%, 30%, 85%, 100% {
+      opacity: 0;
+    }
+    45%, 70% {
+      opacity: 1;
+    }
+  }
+
+  .animate-dot-1 {
+    animation: dotFade 4s ease-in-out infinite 0.3s;
+  }
+
+  .animate-dot-2 {
+    animation: dotFade 4s ease-in-out infinite 0.5s;
+  }
+
+  .animate-dot-3 {
+    animation: dotFade 4s ease-in-out infinite 0.7s;
+  }
+
+  .animate-dot-4 {
+    animation: dotFade 4s ease-in-out infinite 0.9s;
+  }
+
+  @keyframes dotFade {
+    0%, 20% {
+      opacity: 0;
+    }
+    30%, 80% {
+      opacity: 0.7;
+    }
+    90%, 100% {
+      opacity: 0;
+    }
+  }
+
+  /* ============================================
+     DRONE MODAL - DETAILED ANIMATIONS
+     ============================================ */
+
+  /* Rotor spin */
+  .rotor {
+    animation: rotorSpin 0.15s linear infinite;
+    transform-origin: center;
+  }
+
+  @keyframes rotorSpin {
+    from { transform: scaleX(1); }
+    50% { transform: scaleX(0.3); }
+    to { transform: scaleX(1); }
+  }
+
+  /* ============ MINES ANIMATION ============ */
+  
+  .drone-mines-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .drone-mines {
+    position: absolute;
+    animation: droneMinePath 8s ease-in-out infinite;
+  }
+
+  @keyframes droneMinePath {
+    0% {
+      top: 20%;
+      left: 5%;
+      opacity: 1;
+    }
+    15% {
+      top: 35%;
+      left: 35%;
+      opacity: 1;
+    }
+    30% {
+      top: 45%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 1;
+    }
+    60% {
+      top: 45%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 1;
+    }
+    80% {
+      top: 30%;
+      left: 70%;
+      opacity: 1;
+    }
+    100% {
+      top: 15%;
+      left: 90%;
+      opacity: 0.5;
+    }
+  }
+
+  /* Drone lights */
+  .drone-light {
+    animation: lightPulse 1s ease-in-out infinite;
+  }
+
+  @keyframes lightPulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+
+  .light-beam {
+    animation: beamPulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes beamPulse {
+    0%, 100% { opacity: 0.15; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(1.1); }
+  }
+
+  /* Scan lines */
+  .scan-grid-mines {
+    opacity: 0;
+    animation: scanGridAppear 8s ease-in-out infinite;
+  }
+
+  @keyframes scanGridAppear {
+    0%, 25% { opacity: 0; }
+    35%, 65% { opacity: 1; }
+    75%, 100% { opacity: 0; }
+  }
+
+  .scan-line-1, .scan-line-2, .scan-line-3,
+  .scan-line-4, .scan-line-5, .scan-line-6 {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: scanLineDraw 8s ease-in-out infinite;
+  }
+
+  .scan-line-2 { animation-delay: 0.1s; }
+  .scan-line-3 { animation-delay: 0.2s; }
+  .scan-line-4 { animation-delay: 0.3s; }
+  .scan-line-5 { animation-delay: 0.4s; }
+  .scan-line-6 { animation-delay: 0.5s; }
+
+  @keyframes scanLineDraw {
+    0%, 30% { stroke-dashoffset: 100; }
+    45%, 60% { stroke-dashoffset: 0; }
+    75%, 100% { stroke-dashoffset: -100; }
+  }
+
+  /* Warning markers */
+  .warning-marker-1, .warning-marker-2 {
+    opacity: 0;
+    animation: warningAppear 8s ease-in-out infinite;
+  }
+
+  .warning-marker-2 { animation-delay: 0.3s; }
+
+  @keyframes warningAppear {
+    0%, 45% { opacity: 0; transform: scale(0); }
+    55%, 70% { opacity: 1; transform: scale(1); }
+    80%, 100% { opacity: 0; transform: scale(0.8); }
+  }
+
+  .status-mines {
+    animation: statusPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes statusPulse {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+  }
+
+  /* ============ AGRICULTURE ANIMATION ============ */
+
+  .drone-agriculture-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .drone-agriculture {
+    position: absolute;
+    animation: droneAgriPath 7s ease-in-out infinite;
+  }
+
+  @keyframes droneAgriPath {
+    0% {
+      top: 60%;
+      left: 5%;
+      opacity: 0;
+    }
+    10% {
+      top: 25%;
+      left: 10%;
+      opacity: 1;
+    }
+    25% {
+      top: 30%;
+      left: 25%;
+    }
+    50% {
+      top: 28%;
+      left: 50%;
+    }
+    75% {
+      top: 30%;
+      left: 75%;
+    }
+    90% {
+      top: 25%;
+      left: 85%;
+      opacity: 1;
+    }
+    100% {
+      top: 60%;
+      left: 90%;
+      opacity: 0;
+    }
+  }
+
+  /* Spray container */
+  .spray-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+  }
+
+  .spray-particle {
+    position: absolute;
+    width: 2px;
+    background: linear-gradient(to bottom, hsl(var(--primary) / 0.6), hsl(var(--primary) / 0.1));
+    border-radius: 1px;
+    animation: sprayFall 7s ease-in-out infinite;
+  }
+
+  @keyframes sprayFall {
+    0%, 15% {
+      top: 35%;
+      height: 0;
+      opacity: 0;
+    }
+    25% {
+      top: 35%;
+      height: 30px;
+      opacity: 0.7;
+    }
+    50% {
+      top: 45%;
+      height: 20px;
+      opacity: 0.5;
+    }
+    70% {
+      top: 55%;
+      height: 10px;
+      opacity: 0.3;
+    }
+    80%, 100% {
+      top: 65%;
+      height: 0;
+      opacity: 0;
+    }
+  }
+
+  .spray-particle-1 { animation-delay: 0s; left: 20%; }
+  .spray-particle-2 { animation-delay: 0.1s; left: 30%; }
+  .spray-particle-3 { animation-delay: 0.2s; left: 40%; }
+  .spray-particle-4 { animation-delay: 0.3s; left: 50%; }
+  .spray-particle-5 { animation-delay: 0.4s; left: 60%; }
+  .spray-particle-6 { animation-delay: 0.5s; left: 70%; }
+  .spray-particle-7 { animation-delay: 0.6s; left: 80%; }
+
+  /* Crop health transition */
+  .crop-rows {
+    animation: cropsWilt 7s ease-in-out infinite;
+  }
+
+  @keyframes cropsWilt {
+    0%, 30% { opacity: 1; }
+    60%, 100% { opacity: 0.3; }
+  }
+
+  .healthy-crops {
+    animation: cropsGrow 7s ease-in-out infinite;
+  }
+
+  @keyframes cropsGrow {
+    0%, 50% { opacity: 0; transform: scaleY(0.7); }
+    70%, 100% { opacity: 1; transform: scaleY(1); }
+  }
+
+  /* Coverage bar */
+  .coverage-fill {
+    width: 0%;
+    animation: coverageFill 7s ease-in-out infinite;
+  }
+
+  @keyframes coverageFill {
+    0%, 15% { width: 0%; }
+    90%, 100% { width: 100%; }
+  }
+
+  .status-agri {
+    animation: statusPulse 2s ease-in-out infinite;
+  }
+
+  /* ============ WILDLIFE ANIMATION ============ */
+
+  .drone-wildlife-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .drone-wildlife {
+    position: absolute;
+    animation: droneWildlifePath 9s ease-in-out infinite;
+  }
+
+  @keyframes droneWildlifePath {
+    0% {
+      top: 15%;
+      left: 10%;
+    }
+    25% {
+      top: 12%;
+      left: 30%;
+    }
+    50% {
+      top: 18%;
+      left: 55%;
+    }
+    75% {
+      top: 14%;
+      left: 75%;
+    }
+    100% {
+      top: 15%;
+      left: 10%;
+    }
+  }
+
+  /* Camera scan cone */
+  .scan-cone {
+    position: absolute;
+    width: 60px;
+    height: 80px;
+    background: linear-gradient(to bottom, hsl(var(--primary) / 0.3), hsl(var(--primary) / 0.05));
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    animation: scanConeMove 9s ease-in-out infinite;
+  }
+
+  @keyframes scanConeMove {
+    0% {
+      top: 25%;
+      left: calc(10% + 10px);
+      opacity: 0.6;
+    }
+    25% {
+      top: 22%;
+      left: calc(30% + 10px);
+      opacity: 0.8;
+    }
+    50% {
+      top: 28%;
+      left: calc(55% + 10px);
+      opacity: 0.7;
+    }
+    75% {
+      top: 24%;
+      left: calc(75% + 10px);
+      opacity: 0.8;
+    }
+    100% {
+      top: 25%;
+      left: calc(10% + 10px);
+      opacity: 0.6;
+    }
+  }
+
+  /* Animal detection */
+  .animal-1, .animal-2 {
+    opacity: 0.4;
+  }
+
+  .detect-ring-1, .detect-ring-2 {
+    opacity: 0;
+    animation: detectRing 9s ease-in-out infinite;
+  }
+
+  .detect-ring-2 {
+    animation-delay: 0.5s;
+  }
+
+  @keyframes detectRing {
+    0%, 20% { opacity: 0; r: 10; }
+    30%, 45% { opacity: 0.6; r: 18; }
+    55%, 70% { opacity: 0.4; r: 22; }
+    80%, 100% { opacity: 0; r: 25; }
+  }
+
+  /* Protected zone */
+  .protected-zone {
+    opacity: 0;
+    animation: zoneAppear 9s ease-in-out infinite;
+  }
+
+  @keyframes zoneAppear {
+    0%, 40% { opacity: 0; }
+    55%, 75% { opacity: 0.6; }
+    90%, 100% { opacity: 0; }
+  }
+
+  .status-wildlife {
+    animation: statusPulse 2s ease-in-out infinite;
+  }
+
+  /* ============ SURVEILLANCE ANIMATION ============ */
+
+  .drone-surveillance-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .drone-surveillance {
+    position: absolute;
+    animation: droneSurvPath 8s ease-in-out infinite;
+  }
+
+  @keyframes droneSurvPath {
+    0% {
+      top: 50%;
+      left: 45%;
+      transform: translateX(-50%);
+    }
+    15% {
+      top: 18%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    30%, 80% {
+      top: 18%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    100% {
+      top: 18%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Radar */
+  .radar-container {
+    opacity: 0;
+    animation: radarAppear 8s ease-in-out infinite;
+  }
+
+  @keyframes radarAppear {
+    0%, 20% { opacity: 0; }
+    35%, 90% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  .radar-circle {
+    width: 100px;
+    height: 100px;
+    border: 1px solid hsl(var(--primary) / 0.3);
+    border-radius: 50%;
+    position: relative;
+  }
+
+  .radar-circle::before,
+  .radar-circle::after {
+    content: '';
+    position: absolute;
+    border: 1px solid hsl(var(--primary) / 0.2);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .radar-circle::before {
+    width: 66px;
+    height: 66px;
+  }
+
+  .radar-circle::after {
+    width: 33px;
+    height: 33px;
+  }
+
+  .radar-sweep {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(to right, hsl(var(--primary)), transparent);
+    transform-origin: left center;
+    animation: radarSweep 2s linear infinite;
+  }
+
+  @keyframes radarSweep {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* Grid overlay */
+  .grid-overlay {
+    opacity: 0;
+    animation: gridOverlayAppear 8s ease-in-out infinite;
+  }
+
+  @keyframes gridOverlayAppear {
+    0%, 25% { opacity: 0; }
+    40%, 85% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  /* Moving targets */
+  .target-1, .target-2 {
+    opacity: 0;
+    animation: targetDetect 8s ease-in-out infinite;
+  }
+
+  .target-2 {
+    animation-delay: 0.5s;
+  }
+
+  @keyframes targetDetect {
+    0%, 40% { opacity: 0; transform: scale(0.5); }
+    50%, 80% { opacity: 1; transform: scale(1); }
+    90%, 100% { opacity: 0; transform: scale(0.8); }
+  }
+
+  .target-1 {
+    animation: targetMove1 8s ease-in-out infinite;
+  }
+
+  @keyframes targetMove1 {
+    0%, 40% { left: 25%; opacity: 0; }
+    50% { left: 30%; opacity: 1; }
+    70% { left: 35%; opacity: 1; }
+    90%, 100% { left: 40%; opacity: 0; }
+  }
+
+  /* Live indicator */
+  .live-dot {
+    animation: livePulse 1s ease-in-out infinite;
+  }
+
+  @keyframes livePulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .status-surv {
+    opacity: 0;
+    animation: statusSurvAppear 8s ease-in-out infinite;
+  }
+
+  @keyframes statusSurvAppear {
+    0%, 30% { opacity: 0; }
+    45%, 95% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  .camera-pulse {
+    animation: cameraPulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes cameraPulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+}
