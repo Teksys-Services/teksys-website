@@ -68,7 +68,7 @@ export const ServicesSection = () => {
                       />
                     </div>
                     <div className="text-center sm:text-left">
-                      <p className="text-foreground/80 text-sm md:text-base leading-relaxed mb-4">
+                      <p className="text-foreground text-sm md:text-base leading-relaxed mb-4">
                         {service.description}
                       </p>
                       <h3 className="font-display text-xl font-semibold text-foreground tracking-wide">

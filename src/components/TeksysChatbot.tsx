@@ -133,7 +133,7 @@ export const TeksysChatbot = () => {
       <button
         onClick={() => setIsOpen(true)}
         className={cn(
-        "fixed bottom-24 right-6 z-50 w-14 h-14 rounded-full bg-primary shadow-lg transition-all duration-300 flex items-center justify-center group",
+          "fixed bottom-24 right-6 z-50 w-14 h-14 rounded-full bg-primary shadow-lg transition-all duration-300 flex items-center justify-center group",
           "hover:scale-110 hover:shadow-xl",
           isOpen && "hidden"
         )}
@@ -149,7 +149,7 @@ export const TeksysChatbot = () => {
 
       {/* Chat Modal */}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 z-50 w-[380px] max-w-[calc(100vw-3rem)] h-[600px] max-h-[calc(100vh-6rem)] bg-background border border-border rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-bottom-4 duration-300">
+        <div className="fixed bottom-6 right-6 z-50 w-[380px] max-w-[calc(100vw-3rem)] h-[600px] max-h-[calc(100vh-6rem)] bg-card dark:bg-background border border-border rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-bottom-4 duration-300">
           {/* Header */}
           <div className="bg-primary p-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -172,16 +172,16 @@ export const TeksysChatbot = () => {
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4">
+          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-card dark:bg-background">
             {messages.length === 0 ? (
               <div className="space-y-4">
                 {/* Welcome Message */}
                 <div className="flex gap-3">
-                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center flex-shrink-0">
                     <Bot className="w-4 h-4 text-primary" />
                   </div>
-                  <div className="bg-muted rounded-2xl rounded-tl-sm p-3 max-w-[85%]">
-                    <p className="text-sm text-foreground">
+                  <div className="bg-secondary dark:bg-card rounded-2xl rounded-tl-sm p-3 max-w-[85%]">
+                    <p className="text-sm text-card-foreground dark:text-card-foreground">
                       Hi! I'm Lera, your Teksys AI Assistant. I can help you explore our projects, services, and solutions. What would you like to know?
                     </p>
                   </div>
@@ -189,13 +189,13 @@ export const TeksysChatbot = () => {
 
                 {/* Suggested Questions */}
                 <div className="pl-11 space-y-2">
-                  <p className="text-xs text-muted-foreground">Quick questions:</p>
+                  <p className="text-xs text-muted-foreground dark:text-foreground/60">Quick questions:</p>
                   <div className="flex flex-wrap gap-2">
                     {suggestedQuestions.map((question, index) => (
                       <button
                         key={index}
                         onClick={() => sendMessage(question)}
-                        className="text-xs bg-primary/10 text-primary px-3 py-1.5 rounded-full hover:bg-primary/20 transition-colors"
+                        className="text-xs bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-foreground px-3 py-1.5 rounded-full hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors"
                       >
                         {question}
                       </button>
@@ -217,7 +217,7 @@ export const TeksysChatbot = () => {
                       "w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0",
                       message.role === "user"
                         ? "bg-primary"
-                        : "bg-primary/10"
+                        : "bg-primary/10 dark:bg-primary/20"
                     )}
                   >
                     {message.role === "user" ? (
@@ -231,7 +231,7 @@ export const TeksysChatbot = () => {
                       "rounded-2xl p-3 max-w-[85%]",
                       message.role === "user"
                         ? "bg-primary text-primary-foreground rounded-tr-sm"
-                        : "bg-muted text-foreground rounded-tl-sm"
+                        : "bg-secondary dark:bg-card text-card-foreground rounded-tl-sm"
                     )}
                   >
                     <p className="text-sm whitespace-pre-wrap">{message.content}</p>
@@ -242,10 +242,10 @@ export const TeksysChatbot = () => {
             
             {isLoading && messages[messages.length - 1]?.role === "user" && (
               <div className="flex gap-3">
-                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <div className="w-8 h-8 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center flex-shrink-0">
                   <Bot className="w-4 h-4 text-primary" />
                 </div>
-                <div className="bg-muted rounded-2xl rounded-tl-sm p-3">
+                <div className="bg-secondary dark:bg-card rounded-2xl rounded-tl-sm p-3">
                   <Loader2 className="w-4 h-4 animate-spin text-primary" />
                 </div>
               </div>
@@ -255,7 +255,7 @@ export const TeksysChatbot = () => {
           </div>
 
           {/* Input */}
-          <form onSubmit={handleSubmit} className="p-4 border-t border-border">
+          <form onSubmit={handleSubmit} className="p-4 border-t border-border bg-card dark:bg-background">
             <div className="flex gap-2">
               <input
                 ref={inputRef}
@@ -264,7 +264,7 @@ export const TeksysChatbot = () => {
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Type your message..."
                 disabled={isLoading}
-                className="flex-1 bg-muted rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 disabled:opacity-50"
+                className="flex-1 bg-secondary dark:bg-card text-card-foreground placeholder:text-muted-foreground dark:placeholder:text-foreground/50 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 disabled:opacity-50"
               />
               <Button
                 type="submit"

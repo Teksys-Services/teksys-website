@@ -2,8 +2,10 @@ import { useState } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { SmartAgricultureModal } from "@/components/SmartAgricultureModal";
 import { DroneModal } from "@/components/DroneModal";
+import { DocAIModal } from "@/components/DocAIModal";
 import droneProduct from "@/assets/drone-product.png";
 import smartAgriProduct from "@/assets/smart-agriculture-product-lightgreen.png";
+import invoiceExtraction from "@/assets/invoice-extraction.png";
 
 const products = [
   {
@@ -26,18 +28,29 @@ const products = [
     hasModal: true,
     bgClass: "bg-[hsl(var(--primary)/0.06)] dark:bg-[hsl(var(--primary)/0.12)]",
   },
+  {
+    id: "data-extraction",
+    title: "Doc AI - Data Extraction",
+    description:
+      "Intelligent document processing software that extracts key data from invoices and documents automatically.",
+    image: invoiceExtraction,
+    hasModal: true,
+  },
 ];
 
 export const ProductsSection = () => {
   const { ref, isVisible } = useScrollAnimation(0.15);
   const [isSmartAgriModalOpen, setIsSmartAgriModalOpen] = useState(false);
   const [isDroneModalOpen, setIsDroneModalOpen] = useState(false);
+  const [isDocAIModalOpen, setIsDocAIModalOpen] = useState(false);
 
   const handleCardClick = (productId: string) => {
     if (productId === "smart-agriculture") {
       setIsSmartAgriModalOpen(true);
     } else if (productId === "drone") {
       setIsDroneModalOpen(true);
+    } else if (productId === "data-extraction") {
+      setIsDocAIModalOpen(true);
     }
   };
 
@@ -53,7 +66,7 @@ export const ProductsSection = () => {
               PRODUCTS
             </h2>
 
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {products.map((product, index) => (
                 <div
                   key={product.title}
@@ -72,7 +85,7 @@ export const ProductsSection = () => {
                       />
                     </div>
                     <div className="text-center sm:text-left">
-                      <p className="text-foreground/80 text-sm md:text-base leading-relaxed mb-4">
+                      <p className="text-foreground text-sm md:text-base leading-relaxed mb-4">
                         {product.description}
                       </p>
                       <h3 className="font-display text-xl font-semibold text-foreground tracking-wide">
@@ -95,6 +108,11 @@ export const ProductsSection = () => {
       <DroneModal
         isOpen={isDroneModalOpen}
         onClose={() => setIsDroneModalOpen(false)}
+      />
+
+      <DocAIModal
+        isOpen={isDocAIModalOpen}
+        onClose={() => setIsDocAIModalOpen(false)}
       />
     </>
   );

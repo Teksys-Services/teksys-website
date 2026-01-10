@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import teksysLogo from "@/assets/teksys-logo.png";
+import teksysLogo from "@/assets/teksys-logo-new.png";
 const navLinks = [
   { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
@@ -34,13 +34,15 @@ export const Navbar = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "nav-blur py-2" : "bg-background/40 backdrop-blur-sm py-3"
+        isScrolled 
+          ? "bg-[#F5F5F3]/95 dark:bg-[#F5F5F3]/95 backdrop-blur-md py-2 shadow-sm" 
+          : "bg-[#F5F5F3]/90 dark:bg-[#F5F5F3]/90 backdrop-blur-sm py-3"
       }`}
     >
       {/* Top Contact Bar - Desktop Only */}
       <div className="hidden lg:block pb-2 mb-2">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="flex items-center justify-end gap-6 text-xs text-foreground/70">
+          <div className="flex items-center justify-end gap-6 text-xs text-[#040C38]/70">
             <a 
               href="tel:+918600418168" 
               className="flex items-center gap-1.5 hover:text-primary transition-colors"
@@ -88,7 +90,7 @@ export const Navbar = () => {
                       e.preventDefault();
                       scrollToSection(link.href);
                     }}
-                    className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+                    className="text-sm font-medium text-[#040C38]/80 hover:text-primary transition-colors"
                   >
                     {link.label}
                   </a>
@@ -104,7 +106,7 @@ export const Navbar = () => {
             <Button
               variant="ghost"
               size="icon"
-              className="text-foreground"
+              className="text-[#040C38]"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -114,9 +116,9 @@ export const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden absolute left-0 right-0 top-full bg-background/95 backdrop-blur-md border-b border-border shadow-lg animate-fade-in">
+          <div className="md:hidden absolute left-0 right-0 top-full bg-[#F5F5F3]/95 backdrop-blur-md border-b border-[#040C38]/10 shadow-lg animate-fade-in">
             {/* Contact info in mobile menu */}
-            <div className="flex flex-col gap-2 px-4 py-3 border-b border-border/30 text-xs text-foreground/70">
+            <div className="flex flex-col gap-2 px-4 py-3 border-b border-[#040C38]/10 text-xs text-[#040C38]/70">
               <a 
                 href="tel:+918600418168" 
                 className="flex items-center gap-2 hover:text-primary transition-colors"
@@ -141,7 +143,7 @@ export const Navbar = () => {
                       e.preventDefault();
                       scrollToSection(link.href);
                     }}
-                    className="block text-sm font-medium text-foreground/80 hover:text-primary transition-colors py-3 px-2 rounded-md hover:bg-muted"
+                    className="block text-sm font-medium text-[#040C38]/80 hover:text-primary transition-colors py-3 px-2 rounded-md hover:bg-[#040C38]/5"
                   >
                     {link.label}
                   </a>
