@@ -11,6 +11,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 interface ChatbotModalProps {
   isOpen: boolean;
@@ -97,27 +98,50 @@ export const ChatbotModal = ({ isOpen, onClose }: ChatbotModalProps) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const { data, error } = await supabase.functions.invoke("send-enquiry", {
+        body: {
+          type: "chatbot",
+          name: formData.name,
+          email: formData.email,
+          company: formData.companyName,
+          phone: formData.phoneNumber,
+          industry: formData.industry,
+          expectedUsers: formData.dailyInteractions,
+          requirements: `Plan: ${formData.preferredPlan}\nContact Person: ${formData.contactPerson}\nPrimary Purpose: ${formData.primaryPurpose}\nDeployment: ${formData.deploymentLocation}\n\n${formData.requirements}`,
+        },
+      });
 
-    toast({
-      title: "Enquiry Submitted!",
-      description: "We'll get back to you shortly.",
-    });
+      if (error) throw error;
 
-    setFormData({
-      name: "",
-      email: "",
-      preferredPlan: "",
-      companyName: "",
-      contactPerson: "",
-      phoneNumber: "",
-      industry: "",
-      primaryPurpose: "",
-      deploymentLocation: "",
-      dailyInteractions: "",
-      requirements: "",
-    });
-    setIsSubmitting(false);
+      toast({
+        title: "Enquiry Submitted!",
+        description: "We'll get back to you shortly.",
+      });
+
+      setFormData({
+        name: "",
+        email: "",
+        preferredPlan: "",
+        companyName: "",
+        contactPerson: "",
+        phoneNumber: "",
+        industry: "",
+        primaryPurpose: "",
+        deploymentLocation: "",
+        dailyInteractions: "",
+        requirements: "",
+      });
+    } catch (error: any) {
+      console.error("Error sending enquiry:", error);
+      toast({
+        title: "Error",
+        description: "Failed to send enquiry. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleWhatsApp = () => {
@@ -387,7 +411,7 @@ export const ChatbotModal = ({ isOpen, onClose }: ChatbotModalProps) => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="cta-gradient hover:opacity-90 text-foreground font-semibold px-6 py-5 rounded-xl transition-all duration-300"
+                  className="cta-gradient hover:opacity-90 !text-white font-semibold px-6 py-5 rounded-xl transition-all duration-300"
                 >
                   {isSubmitting ? "Submitting..." : "Submit Enquiry"}
                 </Button>

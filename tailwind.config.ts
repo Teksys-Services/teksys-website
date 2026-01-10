@@ -109,6 +109,12 @@ export default {
 				'sans-serif'
 			],
 			display: [
+				'Space Grotesk',
+				'ui-sans-serif',
+				'system-ui',
+				'sans-serif'
+			],
+			orbitron: [
 				'Orbitron',
 				'ui-sans-serif',
 				'system-ui',

@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { supabase } from "@/integrations/supabase/client";
 
 export const ContactSection = () => {
   const { toast } = useToast();
@@ -19,16 +20,34 @@ export const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const { data, error } = await supabase.functions.invoke("send-enquiry", {
+        body: {
+          type: "contact",
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+      });
 
-    toast({
-      title: "Message sent!",
-      description: "We'll get back to you as soon as possible.",
-    });
+      if (error) throw error;
 
-    setFormData({ name: "", email: "", message: "" });
-    setIsSubmitting(false);
+      toast({
+        title: "Message sent!",
+        description: "We'll get back to you as soon as possible.",
+      });
+
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error: any) {
+      console.error("Error sending enquiry:", error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -52,8 +71,8 @@ export const ContactSection = () => {
           </h2>
 
           <div className="max-w-md mx-auto">
-            <div className="glass-card rounded-3xl p-8 md:p-10">
-              <h3 className="font-display text-xl font-semibold text-center mb-8 text-foreground tracking-wide">
+            <div className="rounded-3xl p-8 md:p-10 bg-[#F5F5F3] border border-border/30">
+              <h3 className="font-display text-xl font-semibold text-center mb-8 text-[#040C38] tracking-wide">
                 Enquiry Form
               </h3>
 
@@ -66,7 +85,7 @@ export const ContactSection = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="bg-secondary/30 border-border/50 text-foreground placeholder:text-muted-foreground rounded-xl h-12"
+                    className="bg-white border-gray-300 text-[#040C38] placeholder:text-gray-500 rounded-xl h-12"
                   />
                 </div>
                 <div>
@@ -77,7 +96,7 @@ export const ContactSection = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="bg-secondary/30 border-border/50 text-foreground placeholder:text-muted-foreground rounded-xl h-12"
+                    className="bg-white border-gray-300 text-[#040C38] placeholder:text-gray-500 rounded-xl h-12"
                   />
                 </div>
                 <div>
@@ -88,15 +107,15 @@ export const ContactSection = () => {
                     onChange={handleChange}
                     required
                     rows={4}
-                    className="bg-secondary/30 border-border/50 text-foreground placeholder:text-muted-foreground rounded-xl resize-none"
+                    className="bg-white border-gray-300 text-[#040C38] placeholder:text-gray-500 rounded-xl resize-none"
                   />
                 </div>
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full cta-gradient hover:opacity-90 text-foreground font-semibold py-6 rounded-xl transition-all duration-300"
+                  className="w-full cta-gradient hover:opacity-90 !text-white font-semibold py-6 rounded-xl transition-all duration-300"
                 >
-                  {isSubmitting ? "Sending..." : "Submit"}
+                  {isSubmitting ? "Sending..." : "Submit Enquiry"}
                 </Button>
               </form>
             </div>

@@ -15,10 +15,10 @@ export const HeroSection = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center pt-20 pb-16 relative overflow-hidden"
+      className="min-h-screen flex items-center pt-32 lg:pt-40 pb-16 relative overflow-hidden"
     >
-      {/* Tech-inspired background pattern */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* Light mode tech-inspired background pattern */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none dark:hidden">
         {/* Gradient orbs */}
         <div className="absolute top-1/4 -left-32 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
@@ -26,7 +26,7 @@ export const HeroSection = () => {
         
         {/* Grid pattern */}
         <div 
-          className="absolute inset-0 opacity-[0.08] dark:opacity-[0.12]"
+          className="absolute inset-0 opacity-[0.08]"
           style={{
             backgroundImage: `
               linear-gradient(to right, hsl(var(--primary)) 1px, transparent 1px),
@@ -37,7 +37,7 @@ export const HeroSection = () => {
         />
         
         {/* Circuit lines - horizontal */}
-        <svg className="absolute top-1/3 left-0 w-full h-32 opacity-[0.15] dark:opacity-[0.2]" viewBox="0 0 1200 100" preserveAspectRatio="none">
+        <svg className="absolute top-1/3 left-0 w-full h-32 opacity-[0.15]" viewBox="0 0 1200 100" preserveAspectRatio="none">
           <path d="M0 50 L300 50 L320 30 L400 30 L420 50 L600 50 L620 70 L700 70 L720 50 L1200 50" stroke="hsl(var(--primary))" strokeWidth="1.5" fill="none" />
           <circle cx="320" cy="30" r="4" fill="hsl(var(--primary))" />
           <circle cx="420" cy="50" r="4" fill="hsl(var(--primary))" />
@@ -46,7 +46,7 @@ export const HeroSection = () => {
         </svg>
         
         {/* Circuit lines - diagonal */}
-        <svg className="absolute bottom-1/4 right-0 w-1/2 h-48 opacity-[0.12] dark:opacity-[0.16]" viewBox="0 0 600 200" preserveAspectRatio="none">
+        <svg className="absolute bottom-1/4 right-0 w-1/2 h-48 opacity-[0.12]" viewBox="0 0 600 200" preserveAspectRatio="none">
           <path d="M0 100 L100 100 L150 50 L250 50 L300 100 L400 100 L450 150 L600 150" stroke="hsl(var(--primary))" strokeWidth="1.5" fill="none" />
           <circle cx="150" cy="50" r="5" fill="hsl(var(--primary))" />
           <circle cx="300" cy="100" r="5" fill="hsl(var(--primary))" />
@@ -54,7 +54,7 @@ export const HeroSection = () => {
         </svg>
         
         {/* AI nodes pattern - left side */}
-        <svg className="absolute top-1/2 left-10 w-64 h-64 -translate-y-1/2 opacity-[0.12] dark:opacity-[0.18]" viewBox="0 0 200 200">
+        <svg className="absolute top-1/2 left-10 w-64 h-64 -translate-y-1/2 opacity-[0.12]" viewBox="0 0 200 200">
           <circle cx="100" cy="100" r="60" stroke="hsl(var(--primary))" strokeWidth="1" fill="none" />
           <circle cx="100" cy="100" r="40" stroke="hsl(var(--primary))" strokeWidth="1" fill="none" />
           <circle cx="100" cy="100" r="20" stroke="hsl(var(--primary))" strokeWidth="1" fill="none" />
@@ -68,7 +68,7 @@ export const HeroSection = () => {
         
         
         {/* Dot matrix pattern */}
-        <div className="absolute bottom-20 left-1/4 w-64 h-32 opacity-[0.1] dark:opacity-[0.14]">
+        <div className="absolute bottom-20 left-1/4 w-64 h-32 opacity-[0.1]">
           <svg viewBox="0 0 200 100" className="w-full h-full">
             {[...Array(5)].map((_, row) => (
               [...Array(10)].map((_, col) => (
@@ -89,8 +89,8 @@ export const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-6 animate-section-enter visible">
-            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold tracking-wider">
-              <span className="gradient-text">TEKSYS</span>
+            <h1 className="font-orbitron text-2xl md:text-3xl lg:text-4xl font-bold tracking-wide leading-tight">
+              <span className="gradient-text">AI-Empowered IT, Drone &<br className="hidden sm:block" /> Robotics Defense Solutions</span>
             </h1>
             <p className="text-foreground/80 text-lg md:text-xl max-w-lg leading-relaxed">
               Teksys is a technology-driven company delivering AI-powered IT
@@ -106,49 +106,53 @@ export const HeroSection = () => {
           </div>
 
           {/* Right Content - Hero Circles in 2x2 Formation */}
-          <div className="relative flex justify-center items-center min-h-[350px] lg:min-h-[420px]">
+          <div className="relative flex justify-center items-center min-h-[420px] lg:min-h-[500px] mt-8 lg:mt-0">
             {/* Smart Agriculture Circle - Top Left */}
-            <div
-              className="hero-circle hero-circle-animated w-36 h-36 md:w-48 md:h-48 absolute top-0 left-8 lg:left-16 animate-float-1"
-            >
-              <img
-                src={smartAgriHero}
-                alt="Smart Agriculture"
-                className="w-full h-full object-cover"
-              />
+            <div className="absolute top-8 lg:top-0 left-8 lg:left-16 flex flex-col items-center animate-float-1">
+              <div className="hero-circle hero-circle-animated w-36 h-36 md:w-48 md:h-48">
+                <img
+                  src={smartAgriHero}
+                  alt="Smart Agriculture"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <span className="mt-2 text-base md:text-lg font-display font-medium text-foreground/80">Agro Tech</span>
             </div>
 
             {/* Chatbot Circle - Top Right */}
-            <div
-              className="hero-circle hero-circle-animated w-36 h-36 md:w-48 md:h-48 absolute top-0 right-8 lg:right-16 animate-float-2"
-            >
-              <img
-                src={chatbotHero}
-                alt="AI Chatbot"
-                className="w-full h-full object-cover"
-              />
+            <div className="absolute top-8 lg:top-0 right-8 lg:right-16 flex flex-col items-center animate-float-2">
+              <div className="hero-circle hero-circle-animated w-36 h-36 md:w-48 md:h-48">
+                <img
+                  src={chatbotHero}
+                  alt="AI Chatbot"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <span className="mt-2 text-base md:text-lg font-display font-medium text-foreground/80">AI Chatbot</span>
             </div>
 
             {/* Invoice Extraction Circle - Bottom Left */}
-            <div
-              className="hero-circle hero-circle-animated w-36 h-36 md:w-48 md:h-48 absolute bottom-0 left-8 lg:left-16 animate-float-3"
-            >
-              <img
-                src={invoiceHero}
-                alt="Data Invoice Extraction"
-                className="w-full h-full object-cover"
-              />
+            <div className="absolute bottom-0 left-8 lg:left-16 flex flex-col items-center animate-float-3">
+              <div className="hero-circle hero-circle-animated w-36 h-36 md:w-48 md:h-48">
+                <img
+                  src={invoiceHero}
+                  alt="Data Invoice Extraction"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <span className="mt-2 text-base md:text-lg font-display font-medium text-foreground/80">Doc-AI</span>
             </div>
 
             {/* Drone Circle - Bottom Right */}
-            <div
-              className="hero-circle hero-circle-animated w-36 h-36 md:w-48 md:h-48 absolute bottom-0 right-8 lg:right-16 animate-float-1"
-            >
-              <img
-                src={droneHero}
-                alt="Drone Solution"
-                className="w-full h-full object-cover"
-              />
+            <div className="absolute bottom-0 right-8 lg:right-16 flex flex-col items-center animate-float-1">
+              <div className="hero-circle hero-circle-animated w-36 h-36 md:w-48 md:h-48">
+                <img
+                  src={droneHero}
+                  alt="Drone Solution"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <span className="mt-2 text-base md:text-lg font-display font-medium text-foreground/80">Drone Tech</span>
             </div>
           </div>
         </div>

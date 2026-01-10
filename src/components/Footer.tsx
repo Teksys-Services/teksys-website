@@ -2,7 +2,7 @@ import { Phone, Mail, Linkedin, MapPin } from "lucide-react";
 
 export const Footer = () => {
   return (
-    <footer className="py-8 bg-background border-t border-border/30 relative overflow-hidden">
+    <footer className="py-8 bg-[#F5F5F3] border-t border-[#040C38]/10 relative overflow-hidden">
       {/* Subtle animated wave background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <svg
@@ -20,15 +20,15 @@ export const Footer = () => {
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div className="space-y-3">
-            <a href="tel:+918600418168" className="flex items-center gap-3 text-foreground/80 text-sm hover:text-primary transition-colors">
+            <a href="tel:+918600418168" className="flex items-center gap-3 text-[#040C38]/80 text-sm hover:text-primary transition-colors">
               <Phone size={16} className="text-primary" />
               <span>Call: +91 86004 18168</span>
             </a>
-            <a href="mailto:admin@teksys-services.com" className="flex items-center gap-3 text-foreground/80 text-sm hover:text-primary transition-colors">
+            <a href="mailto:admin@teksys-services.com" className="flex items-center gap-3 text-[#040C38]/80 text-sm hover:text-primary transition-colors">
               <Mail size={16} className="text-primary" />
               <span>Email: admin@teksys-services.com</span>
             </a>
-            <div className="flex items-center gap-3 text-foreground/80 text-sm">
+            <div className="flex items-center gap-3 text-[#040C38]/80 text-sm">
               <Linkedin size={16} className="text-primary" />
               <span>LinkedIn: Teksys Services</span>
             </div>
@@ -36,11 +36,11 @@ export const Footer = () => {
 
           {/* Branches */}
           <div className="space-y-2">
-            <div className="flex items-center gap-2 text-foreground/80 text-sm font-medium">
+            <div className="flex items-center gap-2 text-[#040C38]/80 text-sm font-medium">
               <MapPin size={16} className="text-primary" />
               <span>Our Branches</span>
             </div>
-            <div className="flex items-center gap-3 text-foreground/60 text-sm pl-6">
+            <div className="flex items-center gap-3 text-[#040C38]/60 text-sm pl-6">
               <span>India</span>
               <span className="text-primary/50">•</span>
               <span>Singapore</span>
@@ -49,7 +49,7 @@ export const Footer = () => {
             </div>
           </div>
 
-          <div className="text-foreground/60 text-sm">
+          <div className="text-[#040C38]/60 text-sm">
             © {new Date().getFullYear()} TEKSYS. All rights reserved.
           </div>
         </div>

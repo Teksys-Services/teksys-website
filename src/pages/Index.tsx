@@ -9,10 +9,15 @@ import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { TeksysChatbot } from "@/components/TeksysChatbot";
+import WaveBackground from "@/components/WaveBackground";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
+      {/* Wave background - visible in both themes with adaptive styling */}
+      <div className="fixed inset-0 z-0">
+        <WaveBackground />
+      </div>
       <Navbar />
       <main>
         <HeroSection />

@@ -13,7 +13,7 @@ export const ThemeToggle = () => {
 
   if (!mounted) {
     return (
-      <Button variant="ghost" size="icon" className="text-foreground/80">
+      <Button variant="ghost" size="icon" className="text-[#040C38]">
         <Sun size={18} />
       </Button>
     );
@@ -24,7 +24,7 @@ export const ThemeToggle = () => {
       variant="ghost"
       size="icon"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="text-foreground/80 hover:text-primary transition-colors"
+      className="text-[#040C38] hover:text-primary transition-colors"
     >
       {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
     </Button>
