@@ -49,7 +49,7 @@ const DocAIPage = () => {
 
   // TODO: Replace with your actual backend URL
   // Example: "https://your-backend-api.com/extract"
-  const BACKEND_URL = "http://localhost:5000";
+  const BACKEND_URL = "https://1nbnzwhr-5000.inc1.devtunnels.ms";
 
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFiles = Array.from(event.target.files || []);
@@ -606,5 +606,6 @@ const DocAIPage = () => {
     </div>
   );
 };
+
 
 export default DocAIPage;
