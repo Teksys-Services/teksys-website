@@ -47,7 +47,7 @@ const DocAIPage = () => {
     { id: "ifsc_code", label: "IFSC Code" },
   ];
 
-  const BACKEND_URL = "https://1nbnzwhr-5000.inc1.devtunnels.ms/";
+  const BACKEND_URL = "https://1nbnzwhr-5000.inc1.devtunnels.ms";
 
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFiles = Array.from(event.target.files || []);
@@ -607,6 +607,7 @@ const DocAIPage = () => {
 
 
 export default DocAIPage;
+
 
 
 
