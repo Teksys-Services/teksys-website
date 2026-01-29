@@ -78,7 +78,7 @@ const DocAIPage = () => {
 
         setProgress((i / files.length) * 50); // 50% for upload/setup
 
-        const response = await fetch(`${BACKEND_URL}/extract`, {
+        const response = await fetch(`${BACKEND_URL}extract`, {
           method: "POST",
           body: formData,
         });
@@ -607,6 +607,7 @@ const DocAIPage = () => {
 
 
 export default DocAIPage;
+
 
 
 
