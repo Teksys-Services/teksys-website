@@ -47,9 +47,7 @@ const DocAIPage = () => {
     { id: "ifsc_code", label: "IFSC Code" },
   ];
 
-  // TODO: Replace with your actual backend URL
-  // Example: "https://your-backend-api.com/extract"
-  const BACKEND_URL = "http://localhost:5000";
+  const BACKEND_URL = "https://deepeningly-handsomest-percy.ngrok-free.dev/";
 
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFiles = Array.from(event.target.files || []);
@@ -80,7 +78,7 @@ const DocAIPage = () => {
 
         setProgress((i / files.length) * 50); // 50% for upload/setup
 
-        const response = await fetch(`${BACKEND_URL}/extract`, {
+        const response = await fetch(`${BACKEND_URL}extract`, {
           method: "POST",
           body: formData,
         });
@@ -607,4 +605,20 @@ const DocAIPage = () => {
   );
 };
 
+
 export default DocAIPage;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
