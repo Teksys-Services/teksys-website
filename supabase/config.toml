@@ -1,1 +1,7 @@
 project_id = "apsxnqvhgxwdfogpgbwz"
+
+[functions.teksys-chat]
+verify_jwt = false
+
+[functions.send-enquiry]
+verify_jwt = false

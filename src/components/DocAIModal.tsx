@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { X, FileText, Database, Check } from "lucide-react";
-import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 interface DocAIModalProps {
@@ -22,7 +21,6 @@ const extractedFields = [
 export const DocAIModal = ({ isOpen, onClose }: DocAIModalProps) => {
   const [visibleFields, setVisibleFields] = useState<number[]>([]);
   const [hoveredField, setHoveredField] = useState<number | null>(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (isOpen) {
@@ -173,12 +171,8 @@ export const DocAIModal = ({ isOpen, onClose }: DocAIModalProps) => {
             <Button
               size="lg"
               className="cta-gradient hover:opacity-90 !text-white font-semibold px-8 py-5 rounded-xl transition-all duration-300"
-              onClick={() => {
-                onClose();
-                navigate("/doc-ai");
-              }}
             >
-              Try Doc AI Now
+              Automate Invoice Processing
             </Button>
           </div>
         </div>
