@@ -1,8 +1,16 @@
 import { Button } from "@/components/ui/button";
-import droneHero from "@/assets/drone-hero.png";
-import smartAgriHero from "@/assets/smart-agriculture-hero-light.png";
-import chatbotHero from "@/assets/chatbot-hero.png";
-import invoiceHero from "@/assets/invoice-extraction.png";
+import { Bot, FileText, Cpu, Smartphone, Globe, ArrowRight, Zap, BrainCircuit, BarChart3 } from "lucide-react";
+import aiTechVisual from "@/assets/ai-tech-visual.png";
+import aiChatbotVisual from "@/assets/ai-chatbot-visual.png";
+import aiDocVisual from "@/assets/ai-doc-visual.png";
+
+const services = [
+  { icon: Bot, label: "AI-Powered Chatbot", tag: "AI" },
+  { icon: FileText, label: "AI Doc Extraction", tag: "AI" },
+  { icon: Cpu, label: "SemiTest Solutions", tag: "TECH" },
+  { icon: Smartphone, label: "App Development", tag: "DEV" },
+  { icon: Globe, label: "Website Development", tag: "DEV" },
+];
 
 export const HeroSection = () => {
   const scrollToContact = () => {
@@ -17,143 +25,110 @@ export const HeroSection = () => {
       id="home"
       className="min-h-screen flex items-center pt-32 lg:pt-40 pb-16 relative overflow-hidden"
     >
-      {/* Light mode tech-inspired background pattern */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none dark:hidden">
-        {/* Gradient orbs */}
-        <div className="absolute top-1/4 -left-32 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl" />
-        
-        {/* Grid pattern */}
-        <div 
-          className="absolute inset-0 opacity-[0.08]"
+      {/* Tech-style background visuals */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 -left-32 w-72 h-72 bg-primary/12 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/3 -right-24 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-primary/5 rounded-full blur-3xl" />
+
+        <div
+          className="absolute inset-0 opacity-[0.04] dark:opacity-[0.08]"
           style={{
             backgroundImage: `
               linear-gradient(to right, hsl(var(--primary)) 1px, transparent 1px),
               linear-gradient(to bottom, hsl(var(--primary)) 1px, transparent 1px)
             `,
-            backgroundSize: '60px 60px'
+            backgroundSize: '50px 50px'
           }}
         />
-        
-        {/* Circuit lines - horizontal */}
-        <svg className="absolute top-1/3 left-0 w-full h-32 opacity-[0.15]" viewBox="0 0 1200 100" preserveAspectRatio="none">
-          <path d="M0 50 L300 50 L320 30 L400 30 L420 50 L600 50 L620 70 L700 70 L720 50 L1200 50" stroke="hsl(var(--primary))" strokeWidth="1.5" fill="none" />
-          <circle cx="320" cy="30" r="4" fill="hsl(var(--primary))" />
-          <circle cx="420" cy="50" r="4" fill="hsl(var(--primary))" />
-          <circle cx="620" cy="70" r="4" fill="hsl(var(--primary))" />
-          <circle cx="720" cy="50" r="4" fill="hsl(var(--primary))" />
-        </svg>
-        
-        {/* Circuit lines - diagonal */}
-        <svg className="absolute bottom-1/4 right-0 w-1/2 h-48 opacity-[0.12]" viewBox="0 0 600 200" preserveAspectRatio="none">
-          <path d="M0 100 L100 100 L150 50 L250 50 L300 100 L400 100 L450 150 L600 150" stroke="hsl(var(--primary))" strokeWidth="1.5" fill="none" />
-          <circle cx="150" cy="50" r="5" fill="hsl(var(--primary))" />
-          <circle cx="300" cy="100" r="5" fill="hsl(var(--primary))" />
-          <circle cx="450" cy="150" r="5" fill="hsl(var(--primary))" />
-        </svg>
-        
-        {/* AI nodes pattern - left side */}
-        <svg className="absolute top-1/2 left-10 w-64 h-64 -translate-y-1/2 opacity-[0.12]" viewBox="0 0 200 200">
-          <circle cx="100" cy="100" r="60" stroke="hsl(var(--primary))" strokeWidth="1" fill="none" />
-          <circle cx="100" cy="100" r="40" stroke="hsl(var(--primary))" strokeWidth="1" fill="none" />
-          <circle cx="100" cy="100" r="20" stroke="hsl(var(--primary))" strokeWidth="1" fill="none" />
-          <circle cx="100" cy="40" r="5" fill="hsl(var(--primary))" />
-          <circle cx="100" cy="160" r="5" fill="hsl(var(--primary))" />
-          <circle cx="40" cy="100" r="5" fill="hsl(var(--primary))" />
-          <circle cx="160" cy="100" r="5" fill="hsl(var(--primary))" />
-          <line x1="100" y1="40" x2="100" y2="160" stroke="hsl(var(--primary))" strokeWidth="1" />
-          <line x1="40" y1="100" x2="160" y2="100" stroke="hsl(var(--primary))" strokeWidth="1" />
-        </svg>
-        
-        
-        {/* Dot matrix pattern */}
-        <div className="absolute bottom-20 left-1/4 w-64 h-32 opacity-[0.1]">
-          <svg viewBox="0 0 200 100" className="w-full h-full">
-            {[...Array(5)].map((_, row) => (
-              [...Array(10)].map((_, col) => (
-                <circle 
-                  key={`${row}-${col}`}
-                  cx={col * 20 + 10} 
-                  cy={row * 20 + 10} 
-                  r="2" 
-                  fill="hsl(var(--primary))" 
-                />
-              ))
-            ))}
-          </svg>
-        </div>
+
+        <BrainCircuit className="absolute top-[18%] left-[8%] w-10 h-10 text-primary/10 dark:text-primary/15 animate-pulse" style={{ animationDelay: '0.5s' }} />
+        <BarChart3 className="absolute top-[22%] right-[10%] w-8 h-8 text-primary/10 dark:text-primary/15 animate-pulse" style={{ animationDelay: '1.5s' }} />
+        <Zap className="absolute bottom-[28%] left-[12%] w-7 h-7 text-primary/10 dark:text-primary/15 animate-pulse" style={{ animationDelay: '3s' }} />
+        <Cpu className="absolute bottom-[25%] right-[8%] w-9 h-9 text-primary/10 dark:text-primary/15 animate-pulse" style={{ animationDelay: '2.5s' }} />
+
+        <div className="absolute top-[40%] left-0 w-32 h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent" />
+        <div className="absolute top-[60%] right-0 w-40 h-px bg-gradient-to-l from-transparent via-primary/15 to-transparent" />
+        <div className="absolute top-0 left-[30%] w-px h-24 bg-gradient-to-b from-transparent via-primary/10 to-transparent" />
+        <div className="absolute top-0 right-[25%] w-px h-32 bg-gradient-to-b from-transparent via-primary/10 to-transparent" />
       </div>
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <div className="space-y-6 animate-section-enter visible">
-            <h1 className="font-orbitron text-2xl md:text-3xl lg:text-4xl font-bold tracking-wide leading-tight">
-              <span className="gradient-text">AI-Empowered IT, Drone &<br className="hidden sm:block" /> Robotics Defense Solutions</span>
+        <div className="grid lg:grid-cols-2 gap-12 items-center animate-section-enter visible">
+          {/* Left: Text content */}
+          <div className="space-y-8 text-center lg:text-left">
+            {/* AI badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-sm font-medium">
+              <Zap className="h-3.5 w-3.5" />
+              AI-Powered Innovation · Made in India
+            </div>
+
+            {/* Headline */}
+            <h1 className="font-space-grotesk text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
+              <span className="gradient-text">AI-Powered IT Solutions</span>
+              <br />
+              <span className="text-foreground">at India's Lowest Prices</span>
             </h1>
-            <p className="text-foreground/80 text-lg md:text-xl max-w-lg leading-relaxed">
-              Teksys is a technology-driven company delivering AI-powered IT
-              services, drone solutions, and smart agriculture technologies.
+
+            {/* USP subheading */}
+            <p className="text-foreground/70 text-lg md:text-xl max-w-xl leading-relaxed">
+              We deliver <span className="text-primary font-semibold">AI-powered</span> IT services at unbeatable costs in India.
+              Premium quality, intelligent automation — without the high price tag.
             </p>
-            <Button
-              onClick={scrollToContact}
-              variant="outline"
-              className="border-primary text-foreground hover:bg-primary hover:text-primary-foreground px-8 py-6 text-base font-medium rounded-xl transition-all duration-300"
-            >
-              Contact
-            </Button>
+
+            {/* CTA */}
+            <div className="flex flex-col sm:flex-row items-center lg:items-start gap-4">
+              <Button
+                onClick={scrollToContact}
+                className="!text-white bg-primary hover:bg-primary/90 px-10 py-6 text-lg font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
+                Get Started <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+              <p className="text-sm text-muted-foreground">No hidden costs · Fast delivery</p>
+            </div>
           </div>
 
-          {/* Right Content - Hero Circles in 2x2 Formation */}
-          <div className="relative flex justify-center items-center min-h-[420px] lg:min-h-[500px] mt-8 lg:mt-0">
-            {/* Smart Agriculture Circle - Top Left */}
-            <div className="absolute top-8 lg:top-0 left-8 lg:left-16 flex flex-col items-center animate-float-1">
-              <div className="hero-circle hero-circle-animated w-36 h-36 md:w-48 md:h-48">
-                <img
-                  src={smartAgriHero}
-                  alt="Smart Agriculture"
-                  className="w-full h-full object-cover"
-                />
+          {/* Right: Hero visual */}
+          <div className="relative hidden lg:block">
+            <div className="relative">
+              <img
+                src={aiTechVisual}
+                alt="AI-powered technology dashboard visualization"
+                className="w-3/5 mx-auto rounded-2xl shadow-2xl border border-border/30"
+              />
+              {/* Floating smaller images */}
+              <div className="absolute -bottom-6 -left-6 w-28 h-28 rounded-xl overflow-hidden shadow-xl border-2 border-background">
+                <img src={aiChatbotVisual} alt="AI Chatbot" className="w-full h-full object-cover" />
               </div>
-              <span className="mt-2 text-base md:text-lg font-display font-medium text-foreground/80">Agro Tech</span>
+              <div className="absolute -top-4 -right-4 w-24 h-24 rounded-xl overflow-hidden shadow-xl border-2 border-background">
+                <img src={aiDocVisual} alt="AI Document Extraction" className="w-full h-full object-cover" />
+              </div>
+              {/* Glow effect behind the image */}
+              <div className="absolute inset-0 -z-10 bg-primary/20 rounded-2xl blur-2xl scale-105" />
             </div>
+          </div>
+        </div>
 
-            {/* Chatbot Circle - Top Right */}
-            <div className="absolute top-8 lg:top-0 right-8 lg:right-16 flex flex-col items-center animate-float-2">
-              <div className="hero-circle hero-circle-animated w-36 h-36 md:w-48 md:h-48">
-                <img
-                  src={chatbotHero}
-                  alt="AI Chatbot"
-                  className="w-full h-full object-cover"
-                />
+        {/* Services Grid */}
+        <div className="pt-12 lg:pt-16 animate-section-enter visible">
+          <p className="text-sm font-medium uppercase tracking-widest text-muted-foreground mb-6 text-center">
+            Our AI-Powered Services
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 max-w-3xl mx-auto">
+            {services.map((service) => (
+              <div
+                key={service.label}
+                className="card-gradient rounded-2xl p-4 border border-border/50 hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 group relative"
+              >
+                <span className="absolute top-2 right-2 text-[10px] font-bold uppercase tracking-wider text-primary/60 bg-primary/5 px-1.5 py-0.5 rounded">
+                  {service.tag}
+                </span>
+                <service.icon className="h-8 w-8 mx-auto mb-2 text-primary group-hover:scale-110 transition-transform" />
+                <p className="text-sm font-medium text-foreground leading-snug">
+                  {service.label}
+                </p>
               </div>
-              <span className="mt-2 text-base md:text-lg font-display font-medium text-foreground/80">AI Chatbot</span>
-            </div>
-
-            {/* Invoice Extraction Circle - Bottom Left */}
-            <div className="absolute bottom-0 left-8 lg:left-16 flex flex-col items-center animate-float-3">
-              <div className="hero-circle hero-circle-animated w-36 h-36 md:w-48 md:h-48">
-                <img
-                  src={invoiceHero}
-                  alt="Data Invoice Extraction"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <span className="mt-2 text-base md:text-lg font-display font-medium text-foreground/80">Doc-AI</span>
-            </div>
-
-            {/* Drone Circle - Bottom Right */}
-            <div className="absolute bottom-0 right-8 lg:right-16 flex flex-col items-center animate-float-1">
-              <div className="hero-circle hero-circle-animated w-36 h-36 md:w-48 md:h-48">
-                <img
-                  src={droneHero}
-                  alt="Drone Solution"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <span className="mt-2 text-base md:text-lg font-display font-medium text-foreground/80">Drone Tech</span>
-            </div>
+            ))}
           </div>
         </div>
       </div>

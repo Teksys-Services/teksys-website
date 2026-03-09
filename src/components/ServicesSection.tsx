@@ -4,6 +4,9 @@ import { ChatbotModal } from "@/components/ChatbotModal";
 import { DocAIModal } from "@/components/DocAIModal";
 import chatbotService from "@/assets/chatbot-service.png";
 import invoiceExtraction from "@/assets/invoice-extraction.png";
+import semitestService from "@/assets/semitest-service.png";
+import appDevelopmentService from "@/assets/app-development-service.png";
+import websiteDevelopmentService from "@/assets/website-development-service.png";
 
 const services = [
   {
@@ -21,6 +24,30 @@ const services = [
       "AI-based invoice data extraction to accurately capture and process business documents.",
     image: invoiceExtraction,
     hasModal: true,
+  },
+  {
+    id: "semitest",
+    title: "SemiTest",
+    description:
+      "A software tool that automates electrical testing and measurement of semiconductor devices.",
+    image: semitestService,
+    hasModal: false,
+  },
+  {
+    id: "appdev",
+    title: "App Development",
+    description:
+      "AI-driven mobile and web application development tailored to your business needs.",
+    image: appDevelopmentService,
+    hasModal: false,
+  },
+  {
+    id: "webdev",
+    title: "Website Development",
+    description:
+      "Custom, responsive website design and development to establish your online presence and drive business growth.",
+    image: websiteDevelopmentService,
+    hasModal: false,
   },
 ];
 
