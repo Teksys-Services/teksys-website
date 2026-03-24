@@ -1122,4 +1122,52 @@
     0%, 100% { opacity: 0.6; }
     50% { opacity: 1; }
   }
+
+  /* ============ CESIUM ION PANEL ============ */
+  .cesium-panel {
+    animation: cesiumFadeIn 8s ease-in-out infinite;
+  }
+
+  @keyframes cesiumFadeIn {
+    0%, 30% { opacity: 0; transform: scale(0.9); }
+    45%, 85% { opacity: 1; transform: scale(1); }
+    95%, 100% { opacity: 0; transform: scale(0.95); }
+  }
+
+  .cesium-terrain-line {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: terrainDraw 8s ease-in-out infinite;
+  }
+
+  @keyframes terrainDraw {
+    0%, 35% { stroke-dashoffset: 100; }
+    55%, 80% { stroke-dashoffset: 0; }
+    95%, 100% { stroke-dashoffset: 100; }
+  }
+
+  .cesium-marker-1, .cesium-marker-2 {
+    opacity: 0;
+    animation: cesiumMarkerPop 8s ease-in-out infinite;
+  }
+
+  .cesium-marker-2 { animation-delay: 0.4s; }
+
+  @keyframes cesiumMarkerPop {
+    0%, 50% { opacity: 0; r: 0; }
+    60%, 80% { opacity: 1; r: 2; }
+    95%, 100% { opacity: 0; r: 1; }
+  }
+
+  /* Data stream */
+  .data-stream-svg {
+    opacity: 0;
+    animation: streamAppear 8s ease-in-out infinite;
+  }
+
+  @keyframes streamAppear {
+    0%, 35% { opacity: 0; }
+    50%, 85% { opacity: 1; }
+    95%, 100% { opacity: 0; }
+  }
 }
