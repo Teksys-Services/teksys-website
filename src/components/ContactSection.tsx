@@ -5,7 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { supabase } from "@/integrations/supabase/client";
-import { Mail, Phone, MapPin, Send, Clock, Globe } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Clock, Globe, Zap, BrainCircuit, Cpu } from "lucide-react";
 
 export const ContactSection = () => {
   const { toast } = useToast();
@@ -82,11 +82,26 @@ export const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 section-gradient relative overflow-hidden">
-      {/* Background decorative elements */}
+    <section id="contact" className="py-20 relative overflow-hidden">
+      {/* Tech background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/8 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
+        <div
+          className="absolute inset-0 opacity-[0.03] dark:opacity-[0.06]"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, hsl(var(--primary)) 1px, transparent 1px),
+              linear-gradient(to bottom, hsl(var(--primary)) 1px, transparent 1px)
+            `,
+            backgroundSize: '50px 50px'
+          }}
+        />
+        <BrainCircuit className="absolute top-[15%] left-[8%] w-9 h-9 text-primary/10 dark:text-primary/15 animate-pulse" style={{ animationDelay: '0.5s' }} />
+        <Cpu className="absolute bottom-[20%] right-[10%] w-8 h-8 text-primary/10 dark:text-primary/15 animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-[35%] left-0 w-32 h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent" />
+        <div className="absolute top-[70%] right-0 w-40 h-px bg-gradient-to-l from-transparent via-primary/15 to-transparent" />
+        <div className="absolute top-0 right-[30%] w-px h-24 bg-gradient-to-b from-transparent via-primary/10 to-transparent" />
       </div>
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
@@ -95,31 +110,32 @@ export const ContactSection = () => {
           className={`animate-section-enter ${isVisible ? "visible" : ""}`}
         >
           <div className="text-center mb-16">
-            <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-sm font-medium mb-4">
+              <Zap className="h-3.5 w-3.5" />
               Get In Touch
-            </span>
-            <h2 className="font-display text-4xl md:text-5xl font-bold tracking-wider mb-4">
+            </div>
+            <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight mb-4">
               <span className="gradient-text">LET'S CONNECT</span>
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto text-lg">
-              Have a project in mind or want to learn more about our services? 
-              We'd love to hear from you.
+              Need IETM systems, drone solutions, RF chip design, or AI analytics? 
+              Let's discuss your aerospace & defense requirements.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Contact Info Cards */}
-            <div className="space-y-6">
+            <div className="space-y-4">
               <div className="grid gap-4">
                 {contactInfo.map((info, index) => (
                   <div
                     key={info.title}
-                    className="group card-gradient rounded-2xl p-6 border border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
-                    style={{ transitionDelay: `${index * 0.1}s` }}
+                    className="group rounded-2xl p-6 border border-border/50 hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl bg-card/50 backdrop-blur-sm"
+                    style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <div className="flex items-start gap-4">
                       <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-                        <info.icon className="w-6 h-6 text-primary" />
+                        <info.icon className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
                       </div>
                       <div>
                         <h4 className="font-display font-semibold text-foreground mb-1">
@@ -137,20 +153,20 @@ export const ContactSection = () => {
                 ))}
               </div>
 
-              {/* Additional Info */}
-              <div className="card-gradient rounded-2xl p-6 border border-border/50">
+              {/* Why Choose Us */}
+              <div className="rounded-2xl p-6 border border-border/50 bg-card/50 backdrop-blur-sm">
                 <h4 className="font-display font-semibold text-foreground mb-4 flex items-center gap-2">
                   <Globe className="w-5 h-5 text-primary" />
                   Why Choose Us?
                 </h4>
                 <ul className="space-y-3">
                   {[
-                    "AI-powered solutions tailored to your needs",
-                    "Expert team with industry experience",
-                    "24/7 dedicated support",
-                    "Transparent pricing & timely delivery",
+              "IETM, Drone, RF & AI analytics solutions for Aerospace & Defense",
+                    "Domain experts in defense-grade systems engineering",
+                    "End-to-end delivery from design to deployment",
+                    "Made in India — serving global defense & enterprise clients",
                   ].map((item, idx) => (
-                    <li key={idx} className="flex items-center gap-3 text-muted-foreground">
+                    <li key={idx} className="flex items-center gap-3 text-muted-foreground text-sm">
                       <div className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
                       {item}
                     </li>
@@ -160,7 +176,7 @@ export const ContactSection = () => {
             </div>
 
             {/* Contact Form */}
-            <div className="rounded-3xl p-8 md:p-10 bg-card border border-border/50 shadow-xl shadow-primary/5">
+            <div className="rounded-2xl p-8 md:p-10 border border-border/50 bg-card/50 backdrop-blur-sm shadow-xl shadow-primary/5">
               <div className="flex items-center gap-3 mb-8">
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                   <Send className="w-5 h-5 text-primary" />
