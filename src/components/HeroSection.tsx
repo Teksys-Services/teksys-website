@@ -107,14 +107,17 @@ export const HeroSection = () => {
               </div>
 
               <h1 className="font-space-grotesk text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
-                <span className="gradient-text">AI-Native Engineering</span>
+                <span className="gradient-text">AI-Solutions Company</span>
                 <br />
-                <span className="text-foreground text-2xl md:text-3xl lg:text-4xl">— From Autonomous Swarms to RF Silicon</span>
+                <span className="text-foreground text-2xl md:text-3xl lg:text-4xl">in Aerospace & Defense</span>
               </h1>
 
-              <p className="text-foreground/70 text-lg md:text-xl max-w-xl leading-relaxed">
-                Sensor-fused drone swarms, standards-driven IETM systems, <span className="text-primary font-semibold">AI-powered analytics</span>, and RF chip design — unified into a high-performance, deployment-ready stack.
-              </p>
+              <ul className="text-foreground/80 text-lg md:text-xl max-w-xl leading-relaxed space-y-2 list-none">
+                <li className="flex items-center gap-2"><span className="text-primary">★</span> <span className="font-semibold">IETM Services</span></li>
+                <li className="flex items-center gap-2"><span className="text-primary">★</span> <span className="font-semibold">AI-Powered Drone Solutions</span></li>
+                <li className="flex items-center gap-2"><span className="text-primary">★</span> <span className="font-semibold">RF & Microwave Engineering</span></li>
+                <li className="flex items-center gap-2"><span className="text-primary">★</span> <span className="font-semibold">AI-Driven Data Analytics</span></li>
+              </ul>
 
               <div className="flex flex-col sm:flex-row items-center lg:items-start gap-4">
                 <Button
@@ -136,15 +139,18 @@ export const HeroSection = () => {
                   className="cursor-pointer group rounded-2xl overflow-hidden border border-border/50 hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="aspect-[4/3] overflow-hidden">
+                  <div className="aspect-[4/3] overflow-hidden relative">
                     <img
                       src={card.image}
                       alt={card.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                    <h3 className="absolute bottom-3 left-3 right-3 font-bold text-sm md:text-base text-white drop-shadow-lg leading-tight">
+                      {card.title}
+                    </h3>
                   </div>
                   <div className="p-3 bg-card">
-                    <h3 className="font-semibold text-sm text-foreground mb-1">{card.title}</h3>
                     <p className="text-xs text-muted-foreground leading-relaxed">{card.description}</p>
                   </div>
                 </div>
