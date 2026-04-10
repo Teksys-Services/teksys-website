@@ -5,32 +5,39 @@ import droneHero from "@/assets/drone-hero.png";
 import ietmHero from "@/assets/ietm-hero.png";
 import rfChipHero from "@/assets/rf-chip-hero.png";
 import itAnalyticsHero from "@/assets/it-analytics-hero.png";
+import criticalMineralsHero from "@/assets/critical-minerals-hero.png";
 import { DroneModal } from "@/components/DroneModal";
 import { IETMModal } from "@/components/IETMModal";
 const heroCards = [
   {
     id: "drone",
     title: "Drone (AI & sensors)",
-    description: "Intelligent drones powered by AI and advanced sensors for precision monitoring, automation, and real-time insights.",
+    description: "AI-powered drones for precision monitoring and real-time insights.",
     image: droneHero,
   },
   {
     id: "ietm",
     title: "IETM",
-    description: "Interactive Electronic Technical Manuals that streamline maintenance, training, and operational efficiency.",
+    description: "Electronic Technical Manuals for streamlined maintenance & training.",
     image: ietmHero,
   },
   {
     id: "rf-chip",
     title: "RF Chip Design",
-    description: "Cutting-edge RF chip design enabling high-frequency, low-power communication systems.",
+    description: "High-frequency, low-power RF chips for aerospace communications.",
     image: rfChipHero,
   },
   {
     id: "it-analytics",
     title: "IT (AI based analytics)",
-    description: "End-to-end IT solutions delivering scalable, secure, and high-performance digital transformation.",
+    description: "Scalable AI-driven analytics for digital transformation.",
     image: itAnalyticsHero,
+  },
+  {
+    id: "critical-minerals",
+    title: "Critical Minerals & Advanced Materials",
+    description: "Lithium & rare-earth extraction from spent batteries for defense.",
+    image: criticalMineralsHero,
   },
 ];
 
@@ -67,7 +74,7 @@ export const HeroSection = () => {
     <>
       <section
         id="home"
-        className="min-h-screen flex items-center pt-32 lg:pt-40 pb-16 relative overflow-hidden"
+        className="min-h-screen flex items-center pt-24 lg:pt-28 pb-8 relative overflow-hidden"
       >
         {/* Tech-style background visuals */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -98,31 +105,32 @@ export const HeroSection = () => {
         </div>
 
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center animate-section-enter visible">
+          <div className="grid lg:grid-cols-2 gap-8 items-center animate-section-enter visible">
             {/* Left: Text content */}
-            <div className="space-y-8 text-center lg:text-left">
+            <div className="space-y-5 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-sm font-medium">
                 <Zap className="h-3.5 w-3.5" />
                 AI-Powered Innovation · Made in India
               </div>
 
-              <h1 className="font-space-grotesk text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
+              <h1 className="font-space-grotesk text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight leading-tight">
                 <span className="gradient-text">AI-Solutions Company</span>
                 <br />
-                <span className="text-foreground text-2xl md:text-3xl lg:text-4xl">in Aerospace & Defense</span>
+                <span className="text-foreground text-xl md:text-2xl lg:text-3xl">in Aerospace & Defense</span>
               </h1>
 
-              <ul className="text-foreground/80 text-lg md:text-xl max-w-xl leading-relaxed space-y-2 list-none">
+              <ul className="text-foreground/80 text-base md:text-lg max-w-xl leading-relaxed space-y-1 list-none">
                 <li className="flex items-center gap-2"><span className="text-primary">★</span> <span className="font-semibold">IETM Services</span></li>
                 <li className="flex items-center gap-2"><span className="text-primary">★</span> <span className="font-semibold">AI-Powered Drone Solutions</span></li>
                 <li className="flex items-center gap-2"><span className="text-primary">★</span> <span className="font-semibold">RF & Microwave Engineering</span></li>
                 <li className="flex items-center gap-2"><span className="text-primary">★</span> <span className="font-semibold">AI-Driven Data Analytics</span></li>
+                <li className="flex items-center gap-2"><span className="text-primary">★</span> <span className="font-semibold">Critical Minerals & Advanced Materials</span></li>
               </ul>
 
-              <div className="flex flex-col sm:flex-row items-center lg:items-start gap-4">
+              <div className="flex flex-col sm:flex-row items-center lg:items-start gap-3">
                 <Button
                   onClick={scrollToContact}
-                  className="!text-white bg-primary hover:bg-primary/90 px-10 py-6 text-lg font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
+                  className="!text-white bg-primary hover:bg-primary/90 px-8 py-5 text-base font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
                   Get Started <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
@@ -130,13 +138,15 @@ export const HeroSection = () => {
               </div>
             </div>
 
-            {/* Right: 4 Description Cards */}
-            <div className="grid grid-cols-2 gap-4">
+            {/* Right: 5 Description Cards – 3 top, 2 bottom centered */}
+            <div className="grid grid-cols-6 gap-3">
               {heroCards.map((card, index) => (
                 <div
                   key={card.title}
                   onClick={() => handleCardClick(card.id)}
-                  className="cursor-pointer group rounded-2xl overflow-hidden border border-border/50 hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                  className={`cursor-pointer group rounded-xl overflow-hidden border border-border/50 hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
+                    index < 3 ? "col-span-2" : index === 3 ? "col-start-2 col-span-2" : "col-span-2"
+                  }`}
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="aspect-[4/3] overflow-hidden relative">
@@ -146,12 +156,12 @@ export const HeroSection = () => {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-                    <h3 className="absolute bottom-3 left-3 right-3 font-bold text-sm md:text-base text-white drop-shadow-lg leading-tight">
+                    <h3 className="absolute bottom-2 left-2 right-2 font-bold text-xs md:text-sm text-white drop-shadow-lg leading-tight">
                       {card.title}
                     </h3>
                   </div>
-                  <div className="p-3 bg-card">
-                    <p className="text-xs text-muted-foreground leading-relaxed">{card.description}</p>
+                  <div className="p-2 bg-card">
+                    <p className="text-[10px] md:text-xs text-muted-foreground leading-snug">{card.description}</p>
                   </div>
                 </div>
               ))}
