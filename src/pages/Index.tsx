@@ -10,6 +10,7 @@ import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { TeksysChatbot } from "@/components/TeksysChatbot";
 import WaveBackground from "@/components/WaveBackground";
+import { InquiryPopup } from "@/components/InquiryPopup";
 
 const Index = () => {
   return (
@@ -31,6 +32,7 @@ const Index = () => {
       <Footer />
       <WhatsAppButton />
       <TeksysChatbot />
+      <InquiryPopup />
     </div>
   );
 };

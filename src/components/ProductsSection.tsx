@@ -7,6 +7,7 @@ import droneHero from "@/assets/drone-hero.png";
 import ietmHero from "@/assets/ietm-hero.png";
 import rfChipHero from "@/assets/rf-chip-hero.png";
 import itAnalyticsHero from "@/assets/it-analytics-hero.png";
+import criticalMineralsHero from "@/assets/critical-minerals-hero.png";
 
 const products = [
   {
@@ -40,6 +41,14 @@ const products = [
     image: itAnalyticsHero,
     hasModal: false,
     tag: "AI",
+  },
+  {
+    id: "critical-minerals",
+    title: "Critical Minerals & Advanced Materials",
+    description: "Sustainable extraction of lithium and rare-earth elements from spent batteries, enabling circular economy for defense and energy sectors.",
+    image: criticalMineralsHero,
+    hasModal: false,
+    tag: "MINERALS",
   },
 ];
 
